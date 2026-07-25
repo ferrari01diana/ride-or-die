@@ -1,0 +1,7 @@
+.table {
+    color: #ffffff !important;
+}
+
+.table-dark {
+    --bs-table-bg: #121212 !important;
+}

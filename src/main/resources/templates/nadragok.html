@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ride Or Die - Termékek</title>
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-xl navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand brand-logo fs-2" href="index.html" th:href="@{/}"><i class="bi bi-speedometer2 text-red me-1"></i> RIDE OR <span class="text-red">DIE</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3 text-uppercase">
+                <li class="nav-item"><a class="nav-link" href="bukosisakok.html" th:href="@{/bukosisakok}">Bukósisakok</a></li>
+                <li class="nav-item"><a class="nav-link" href="borruhak.html" th:href="@{/borruhak}">Bőrruhák</a></li>
+                <li class="nav-item"><a class="nav-link" href="kabatok.html" th:href="@{/kabatok}">Kabátok</a></li>
+                <li class="nav-item"><a class="nav-link active" href="nadragok.html" th:href="@{/nadragok}">Nadrágok</a></li>
+                <li class="nav-item"><a class="nav-link" href="kesztyuk.html" th:href="@{/kesztyuk}">Kesztyűk</a></li>
+                <li class="nav-item"><a class="nav-link" href="csizmak-cipok.html" th:href="@{/csizmak-cipok}">Csizmák/Cipők</a></li>
+            </ul>
+            <a href="kosar.html" th:href="@{/kosar}" class="btn btn-outline-danger position-relative fw-bold text-white border-danger brand-font ms-2">
+                <i class="bi bi-cart3 text-red"></i> Kosár
+                <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header"><div class="container"><h1 class="page-title text-uppercase">NADRÁGOK</h1></div></div>
+
+<div class="container pb-5">
+    <section class="mb-5">
+        <h3 class="subcategory-header"><i class="bi bi-chevron-right text-red me-2"></i>Kevlár Farmer & Textil Nadrágok & Bőrnadrágok</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../static/images/nadrag/bornadrag.jpg" th:src="@{/images/nadrag/bornadrag.jpg}" class="card-img-top" alt="Termék">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Missile V3</h5>
+                        <p class="card-text text-secondary flex-grow-1">Pályára kész bőrvédelem, cserélhető térdkoptatók, combnál harmonika stretch panelek.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3"><span class="price-tag">185 900 Ft</span><button class="btn btn-red btn-add-to-cart"><i class="bi bi-cart-plus"></i> Kosárba</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../static/images/nadrag/turanadrag.jpg" th:src="@{/images/nadrag/turanadrag.jpg}" class="card-img-top" alt="Termék">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Halo Pro Drystar XF Laminated Pants</h5>
+                        <p class="card-text text-secondary flex-grow-1">Bírja a legkeményebb esőt, kiemelkedő szellőzőnyílások a combnál, rugalmas túra szabásvonal.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3"><span class="price-tag">160 000 Ft</span><button class="btn btn-red btn-add-to-cart"><i class="bi bi-cart-plus"></i> Kosárba</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="../static/images/nadrag/farmernadrag.jpg" th:src="@{/images/nadrag/farmernadrag.jpg}" class="card-img-top" alt="Termék">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Flex-AST 5 Farmer</h5>
+                        <p class="card-text text-secondary flex-grow-1">Farmer kinézet, komoly védelem, stretch anyagszerkezet a kényelemért, kevlar erősítésű kopásállóság.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3"><span class="price-tag">89 900 Ft</span><button class="btn btn-red btn-add-to-cart"><i class="bi bi-cart-plus"></i> Kosárba</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="text-center text-secondary"><div class="container"><p class="mb-0 fw-bold brand-font fs-6">&copy; 2026 RIDE OR DIE - WHERE EVERY RIDE BEGINS</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let cartCount = 0; const cartBadge = document.getElementById('cartBadge');
+        document.querySelectorAll('.btn-add-to-cart').forEach(btn => btn.addEventListener('click', () => { cartCount++; if(cartBadge) cartBadge.textContent = cartCount; }));
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+
+<script th:src="@{/app.js}" src="../static/app.js"></script>
+</body>
+</html>
